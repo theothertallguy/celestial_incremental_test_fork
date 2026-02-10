@@ -2025,6 +2025,14 @@ class SpaceArena {
         this._savedMaxAsteroids = this.maxAsteroids;
         this.maxAsteroids = 0;
 
+        // disable all player key presses to prevent moving after cutscene
+        this.mouseDown = false;
+        this.keys["KeyW"] = false;
+        this.keys["KeyA"] = false;
+        this.keys["KeyS"] = false;
+        this.keys["KeyD"] = false;
+        this.keys["Space"] = false;
+
         // Save and zero velocities (freeze asteroids)
         for (let a of this.asteroids) {
             a._savedVX = a.vx;
@@ -4915,6 +4923,14 @@ class SpaceArena {
 
     pauseEvents() {
         this.running = false;
+
+        // disable all player key presses to prevent moving after cutscene
+        this.mouseDown = false;
+        this.keys["KeyW"] = false;
+        this.keys["KeyA"] = false;
+        this.keys["KeyS"] = false;
+        this.keys["KeyD"] = false;
+        this.keys["Space"] = false;
     }
 
     resumeEvents() {
